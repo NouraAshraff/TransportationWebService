@@ -9,42 +9,29 @@ public class UserRegister extends Registration {
     @Override
     public boolean Register(IUser iuser) {
         IUser result;
-        result = obj.searchIUser(iuser.getUserName(), iuser.getPassword());
+        result = isaving.searchIUser(iuser.getUserName(), iuser.getPassword());
         if (result != null) {
-            System.out.println("This account already exist , Try to login!");
+            return  false;
         } else {
-            obj.saveUser(iuser);
-            // iuser.verified = true;
             ((User) iuser).setVerified(true);
-            System.out.println("you registered successfully!, Welcome!!");
+           return isaving.saveUser(iuser);
+
         }
     }
 
     @Override
     public boolean login(IUser iuser) {
-
         IUser result;
-        boolean ans=false;
-        System.out.println("in login");
-        result = obj.searchIUser(iuser.getUserName(), iuser.getPassword());
-
-        if (iuser instanceof User) {
-
+        result = isaving.searchIUser(iuser.getUserName(), iuser.getPassword());
+        if ( result!=null && iuser instanceof User) {
             if (((User) iuser).getVerified() == true) {
-                System.out.println("You logged in successfully.");
-                ans=true;
+               // System.out.println("You logged in successfully.");
+                return true;
             } else {
-                System.out.println("You are not verified yet!");
-                ans=false;
-
+               // System.out.println("You are not verified yet!");
+                return  false;
             }
         }
-
-
-        else{
-            System.out.println("you are not user");
-            ans=false;
-        }
-        return ans;
+        return false;
     }
 }

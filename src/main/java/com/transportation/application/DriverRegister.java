@@ -10,11 +10,11 @@ public class DriverRegister extends Registration {
     @Override
     public boolean Register(IUser iuser) {
         IUser result;
-        result = obj.searchIUser(iuser.getUserName(), iuser.getPassword());
+        result = isaving.searchIUser(iuser.getUserName(), iuser.getPassword());
         if (result != null) {
             return false;
         } else {
-            return obj.savePended(iuser);
+            isaving.savePended(iuser);
         }
     }
 

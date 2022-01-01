@@ -5,13 +5,13 @@ import com.transportation.Persistence.arraySaving;
 import com.transportation.Persistence.ISaving;
 
 public abstract class Registration {
-    public ISaving obj  = new arraySaving();
 
-    public Registration() {
-    }
+    public ISaving isaving  = new arraySaving();
 
     public boolean Register(IUser iuser){
     }
+    public Registration() {}
+
 
     public abstract boolean login(IUser iuser);
 }
