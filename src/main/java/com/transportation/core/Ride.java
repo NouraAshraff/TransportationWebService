@@ -2,7 +2,6 @@ package com.transportation.core;
 
 import com.transportation.application.IArea;
 import com.transportation.application.IRide;
-import com.transportation.application.RideRequest;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;

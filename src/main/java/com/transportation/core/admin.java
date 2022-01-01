@@ -3,8 +3,6 @@ package com.transportation.core;
 import com.transportation.Persistence.ISaving;
 import com.transportation.Persistence.arraySaving;
 import com.transportation.application.IUser;
-import com.transportation.application.RideRequest;
-
 
 
 import java.util.ArrayList;

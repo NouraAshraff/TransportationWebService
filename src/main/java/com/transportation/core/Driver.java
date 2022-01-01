@@ -1,6 +1,5 @@
 package com.transportation.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.transportation.application.*;
 
 import java.util.ArrayList;

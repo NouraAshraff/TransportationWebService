@@ -1,9 +1,6 @@
 package com.transportation;
 import com.transportation.application.*;
-import com.transportation.core.Area;
-import com.transportation.core.Driver;
-import com.transportation.core.Ride;
-import com.transportation.core.User;
+import com.transportation.core.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

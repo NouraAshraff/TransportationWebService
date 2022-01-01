@@ -15,7 +15,7 @@ public class User extends IUser {
     private boolean verified;
     private RideRequest userRequest;
     private String birthDate;
-    private Ride chosenRide;
+    public Ride chosenRide;
     private ArrayList<Offer>savedOffers= new ArrayList<>();
     public User() {
         super();

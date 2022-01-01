@@ -2,6 +2,7 @@ package com.transportation.application;
 
 import com.transportation.core.Area;
 import com.transportation.core.Ride;
+import com.transportation.core.RideRequest;
 import com.transportation.core.User;
 
 import java.util.ArrayList;

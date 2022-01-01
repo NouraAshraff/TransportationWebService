@@ -1,4 +1,7 @@
-package com.transportation.application;
+package com.transportation.core;
+
+import com.transportation.application.Event;
+import com.transportation.application.Offer;
 
 import java.nio.file.Path;
 import java.time.LocalDate;
