@@ -1,7 +1,6 @@
 package com.transportation.core;
 
 
-
 import com.transportation.application.*;
 
 import java.time.LocalDate;
@@ -16,10 +15,12 @@ public class User extends IUser {
     private RideRequest userRequest;
     private String birthDate;
     public Ride chosenRide;
-    private ArrayList<Offer>savedOffers= new ArrayList<>();
+    private ArrayList<Offer> savedOffers = new ArrayList<>();
+
     public User() {
         super();
     }
+
     public User(String userName, String password, String phoneNum, String email, Offer offer) {
         super(userName, password);
         this.phoneNum = phoneNum;
@@ -31,6 +32,7 @@ public class User extends IUser {
     public IRide getChosenRide() {
         return chosenRide;
     }
+
     public void setChosenRide(Ride chosenRide) {
         this.chosenRide = chosenRide;
     }
@@ -47,7 +49,6 @@ public class User extends IUser {
         return phoneNum;
     }
 
-
     public void setVerified(boolean verified) {
         this.verified = verified;
     }
@@ -60,7 +61,7 @@ public class User extends IUser {
         this.email = email;
     }
 
-    public boolean getVerified(){
+    public boolean getVerified() {
         return verified;
     }
 
@@ -84,30 +85,30 @@ public class User extends IUser {
         this.userRequest = userRequest;
     }
 
+
     public Ride requestRide(IRide ride, int noOfPass) {
-        RideRequest nwRequest=new RideRequest();
-        if(userRequest==null){
-            LocalDate date=LocalDate.now();
+        RideRequest nwRequest = new RideRequest();
+        if (userRequest == null) {
+            LocalDate date = LocalDate.now();
             nwRequest.setDate(date.toString());
             nwRequest.setNoOfPass(noOfPass);
-            ((Ride)ride).addRequest(nwRequest);
-            userRequest=nwRequest;
-            ride.checkSourceArea(((Ride)ride).getSource());
+            ((Ride) ride).addRequest(nwRequest);
+            userRequest = nwRequest;
+            ride.checkSourceArea(((Ride) ride).getSource());
         }
         System.out.println("after adding request:");
-        System.out.println(((Ride)ride).getRequests());
-        System.out.println("user req: "+userRequest);
-        return (Ride)ride;
+        System.out.println(((Ride) ride).getRequests());
+        System.out.println("user req: " + userRequest);
+        return (Ride) ride;
     }
-
 
     public Offer chooseOffer(Ride ride) {
         System.out.println("Choose one of these offers");
 
         for (int i = 0; i < userRequest.getOffers().size(); i++) {
-            System.out.println((i + 1) + ":" );
-            System.out.println("Price: "+userRequest.getOffers().get(i).calculatePrice());
-            System.out.println("Driver: "+(userRequest.getOffers().get(i)).getDriver());
+            System.out.println((i + 1) + ":");
+            System.out.println("Price: " + userRequest.getOffers().get(i).calculatePrice());
+            System.out.println("Driver: " + (userRequest.getOffers().get(i)).getDriver());
 
         }
         Scanner cs = new Scanner(System.in);
@@ -116,29 +117,30 @@ public class User extends IUser {
         this.setChosenRide(ride);
         calcprice();
         System.out.println("Price after discount : " + offer.getUserPrice());
-        Event event1 = new AcceptanceEvent(this );
+        Event event1 = new AcceptanceEvent(this);
         userRequest.addEvent(event1);
         offer.getDriver().startRide(this);
         savedOffers.add(offer);
 
-        return userRequest.getOffers().get(choise-1);
+        return userRequest.getOffers().get(choise - 1);
     }
-    public void calcprice(){
+
+    public void calcprice() {
         IOffer offer = new Discount(this.offer);
-        if (chosenRide.getDestenation().getAdminDiscount()==true){
-              offer= new TenPresentDiscount(offer);
+        if (chosenRide.getDestenation().getAdminDiscount() == true) {
+            offer = new TenPresentDiscount(offer);
         }
-        if (birthDate==userRequest.getDate()){
-            offer= new TenPresentDiscount(offer);
+        if (birthDate == userRequest.getDate()) {
+            offer = new TenPresentDiscount(offer);
         }
-        if (userRequest.getNoOfPass()>=2){
+        if (userRequest.getNoOfPass() >= 2) {
             offer = new FivePresentDiscount(offer);
         }
-        if (savedOffers.size()==0){
+        if (savedOffers.size() == 0) {
             System.out.println("cccccccc");
-            offer= new TenPresentDiscount(offer);
+            offer = new TenPresentDiscount(offer);
         }
-        if (chosenRide.checkHoliday()==true){
+        if (chosenRide.checkHoliday() == true) {
             offer = new FivePresentDiscount(offer);
         }
         this.offer.setUserPrice(offer.calculatePrice());
@@ -147,9 +149,10 @@ public class User extends IUser {
         System.out.println("------------------driver-------------------");
         System.out.println(this.offer.getdriverPrice());
     }
+
     @Override
     public String toString() {
-        return "User(username= "+userName+" ,"+"email= " + email + ", offer=" + offer + ", phoneNum=" + phoneNum + ")"+"\n";
+        return "User(username= " + userName + " ," + "email= " + email + ", offer=" + offer + ", phoneNum=" + phoneNum + ")" + "\n";
     }
 
 

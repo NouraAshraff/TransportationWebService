@@ -14,9 +14,20 @@ public class Ride implements IRide {
     private IArea Destenation ;
     private ArrayList<RideRequest> requests=new ArrayList<RideRequest>();
 
-    public void addRequest(RideRequest nwRequest){
-            requests.add(nwRequest);
+
+    public Ride(IArea source, IArea Destenation) {
+        this.source = source;
+        this.Destenation = Destenation;
     }
+
+    public Ride() {
+
+    }
+
+    public boolean addRequest(RideRequest nwRequest){
+        return requests.add(nwRequest);
+    }
+
     public boolean checkHoliday(){
         LocalDate date= LocalDate.now();
         DayOfWeek day = DayOfWeek.of(date.get(ChronoField.DAY_OF_WEEK));
@@ -30,10 +41,6 @@ public class Ride implements IRide {
         return requests;
     }
 
-    public Ride(IArea source, IArea Destenation) {
-        this.source = source;
-        this.Destenation = Destenation;
-    }
 
     public Area getSource() {
         return (Area) source;
