@@ -16,48 +16,48 @@ import java.util.ArrayList;
 public class ArraySavingController {
     ISaving arraySaving = new arraySaving();
 
-    @PostMapping("saveUser")
+    @PostMapping("/saveUser")
     public boolean saveUser(IUser user) {
         return arraySaving.saveUser(user);
     }
 
-    @PostMapping("addAdmin")
+    @PostMapping("/addAdmin")
     public boolean addAdmin(IUser admin) {
         return arraySaving.addAdmin(admin);
     }
 
-    @PostMapping("savePended")
+    @PostMapping("/savePended")
     public boolean savePended(IUser pended) {
         return arraySaving.savePended(pended);
 
     }
 
-    @PostMapping("saveArea")
+    @PostMapping("/saveArea")
     public boolean saveArea(Area area) {
         return arraySaving.saveArea(area);
     }
 
-    @PostMapping("saveRide")
+    @PostMapping("/saveRide")
     public boolean saveRide(Ride ride) {
         return arraySaving.saveRide(ride);
     }
 
-    @GetMapping("retrieveUser")
+    @GetMapping("/retrieveUser")
     public ArrayList<IUser> retrieveUsers() {
         return arraySaving.retrieveUsers();
     }
 
-    @GetMapping("retrievePended")
+    @GetMapping("/retrievePended")
     public ArrayList<IUser> retrievePended() {
         return arraySaving.retrievePended();
     }
 
-    @GetMapping("retrieveArea")
+    @GetMapping("/retrieveArea")
     public ArrayList<Area> retrieveArea() {
         return arraySaving.retrieveArea();
     }
 
-    @GetMapping("retrieveRide")
+    @GetMapping("/retrieveRide")
     public ArrayList<Ride> retrieveRide() {
         return arraySaving.retrieveRide();
     }

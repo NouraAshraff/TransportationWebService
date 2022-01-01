@@ -1,7 +1,7 @@
 package com.transportation;
 import com.transportation.application.IUser;
-import com.transportation.application.RideRequest;
 import com.transportation.core.Area;
+import com.transportation.core.RideRequest;
 import com.transportation.core.admin;
 import org.springframework.web.bind.annotation.*;
 
