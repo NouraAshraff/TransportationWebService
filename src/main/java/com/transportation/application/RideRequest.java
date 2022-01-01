@@ -14,10 +14,10 @@ public class RideRequest{
 
     }
 
-    /*public RideRequest(int num ){
+    public RideRequest(int num ){
 
         noOfPass=num;
-    }*/
+    }
 
     public void setNoOfPass(int noOfPass) {
         this.noOfPass = noOfPass;

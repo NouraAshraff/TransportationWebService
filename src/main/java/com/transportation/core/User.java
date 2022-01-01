@@ -20,12 +20,16 @@ public class User extends IUser {
     public User() {
         super();
     }
-    public User(String userName, String password, String phoneNum, String email, Offer offer) {
+    public User(String userName, String password, String phoneNum, String email, Offer offer,String birthDate) {
         super(userName, password);
         this.phoneNum = phoneNum;
         this.email = email;
         this.offer = offer;
+        this.birthDate=birthDate;
 
+    }
+    public User(String userName){
+        this.userName=userName;
     }
 
     public IRide getChosenRide() {
@@ -135,7 +139,6 @@ public class User extends IUser {
             offer = new FivePresentDiscount(offer);
         }
         if (savedOffers.size()==0){
-            System.out.println("cccccccc");
             offer= new TenPresentDiscount(offer);
         }
         if (chosenRide.checkHoliday()==true){

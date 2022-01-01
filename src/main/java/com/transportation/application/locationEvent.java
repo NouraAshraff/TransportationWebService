@@ -26,8 +26,8 @@ public class locationEvent implements Event {
     }
 
     @Override
-    public void printEvent() {
-        System.out.println("Name : " + name+
+    public String printEvent() {
+        return ("Name : " + name+
                 "  Time : " + time +
                 "  UserName : "+ user.getUserName()+
                 "  CaptainName : " + driver.getUserName());
