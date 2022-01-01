@@ -8,10 +8,8 @@ public abstract class Registration {
 
     public ISaving isaving  = new arraySaving();
 
-    public boolean Register(IUser iuser){
-    }
+    public abstract boolean Register(IUser iuser);
     public Registration() {}
-
 
     public abstract boolean login(IUser iuser);
 }
