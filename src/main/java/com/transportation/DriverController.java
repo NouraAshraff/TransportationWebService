@@ -7,6 +7,7 @@ import java.util.ArrayList;
 @RestController
 public class DriverController  {
     private IDriver driver;
+
      DriverController(){
         driver= new Driver();
     }

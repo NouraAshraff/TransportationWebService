@@ -9,9 +9,11 @@ import java.util.ArrayList;
 @RestController
 public class adminController {
         admin admin;
+
         public adminController(){
             admin=new admin();
         }
+
         @PostMapping("/addDiscount")
         public void addDiscount(@RequestBody Area area){
            admin.addDiscount(area);
@@ -26,7 +28,6 @@ public class adminController {
         @PutMapping("/suspend")
         public boolean suspend( @RequestBody IUser user) {
            return admin.suspend(user);
-
         }
 
         @PutMapping("/verify")

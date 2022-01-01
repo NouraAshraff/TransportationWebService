@@ -14,7 +14,6 @@ public class AcceptanceEvent implements Event {
 
     private String time;
     public AcceptanceEvent(){
-
     }
 
     public AcceptanceEvent(User user )

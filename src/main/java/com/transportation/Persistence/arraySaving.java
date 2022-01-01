@@ -22,8 +22,6 @@ public class arraySaving implements ISaving {
            return iusers.add(user);
         return  false;
     }
-    ;
-
     @Override
     public boolean addAdmin(IUser admin) {
         if (!admins.contains(admin))
@@ -119,5 +117,4 @@ public class arraySaving implements ISaving {
         }
         return null;
     }
-
 }

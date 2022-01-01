@@ -33,6 +33,5 @@ public class AreaController {
     @DeleteMapping("/removeDriver")
     public boolean removeDriver(@RequestBody Driver driver) {
         return  area.removeDriver(driver);
-
     }
 }

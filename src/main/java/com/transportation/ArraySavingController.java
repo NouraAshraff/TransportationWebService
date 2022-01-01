@@ -30,7 +30,6 @@ public class ArraySavingController {
     @PostMapping("/savePended")
     public boolean savePended( @RequestBody IUser pended) {
         return arraySaving.savePended(pended);
-
     }
 
     @PostMapping("/saveArea")
@@ -82,7 +81,4 @@ public class ArraySavingController {
     public IUser searchAdmin(@RequestBody String userName, @RequestBody String Password) {
        return  arraySaving.searchAdmin(userName,Password);
     }
-
-
-
 }
