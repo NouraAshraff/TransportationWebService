@@ -17,39 +17,45 @@ public class arraySaving implements ISaving {
     static ArrayList<IUser> admins = new ArrayList<>();
 
     @Override
-    public void saveUser(IUser user) {
+    public boolean saveUser(IUser user) {
         if (!iusers.contains(user))
-            iusers.add(user);
-
+           return iusers.add(user);
+        return  false;
     }
-
     ;
 
     @Override
-    // add admin internally.
-    public void addAdmin(IUser admin) {
+    public boolean addAdmin(IUser admin) {
         if (!admins.contains(admin))
-            admins.add(admin);
+           return admins.add(admin);
+        else
+            return false;
     }
 
     @Override
-    public void savePended(IUser pended) {
+    public boolean savePended(IUser pended) {
         if (!pending.contains(pended))
-            pending.add(pended);
+           return pending.add(pended);
+        else
+            return  false;
     }
 
     @Override
-    public void save(Area area) {
+    public boolean saveArea(Area area) {
         if (!areas.contains(area))
-            areas.add(area);
+           return areas.add(area);
+        else
+            return  false;
     }
 
     @Override
-    public void save(Ride ride) {
-        if (!rides.contains(ride))
+    public boolean saveRide(Ride ride) {
+        if (!rides.contains(ride)) {
             rides.add(ride);
-        this.save((Area) ride.getSource());
-        this.save((Area) ride.getDestenation());
+            this.saveArea((Area) ride.getSource());
+            this.saveArea((Area) ride.getDestenation());
+        }
+        return false;
     }
 
     @Override
@@ -89,7 +95,7 @@ public class arraySaving implements ISaving {
             }
         }
         IRide ride = new Ride(source,destination);
-        save((Ride) ride);
+        saveRide((Ride) ride);
         return ride;
     }
     @Override
@@ -100,8 +106,7 @@ public class arraySaving implements ISaving {
             }
         }
         IArea nwArea = new Area(name);
-        nwArea.setName(name);
-        save((Area) nwArea);
+        saveArea((Area) nwArea);
         return nwArea;
     }
 

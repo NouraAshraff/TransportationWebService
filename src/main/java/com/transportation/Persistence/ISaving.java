@@ -9,17 +9,17 @@ import com.transportation.core.Ride;
 import java.util.ArrayList;
 
 public interface ISaving {
-    void saveUser(IUser user);
+    boolean saveUser(IUser user);
 
-    void savePended(IUser pended);
+    boolean savePended(IUser pended);
 
-    void save(Area area);
+    boolean saveArea(Area area);
 
-    void save(Ride ride);
+    boolean saveRide(Ride ride);
 
     ArrayList<IUser> retrieveUsers();
 
-    void addAdmin(IUser admin);
+    boolean addAdmin(IUser admin);
 
     ArrayList<IUser> retrievePended();
 

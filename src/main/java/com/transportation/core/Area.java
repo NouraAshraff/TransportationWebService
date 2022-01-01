@@ -1,6 +1,5 @@
 package com.transportation.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.transportation.application.IArea;
 import com.transportation.application.IDriver;
 
@@ -11,9 +10,7 @@ public class Area implements IArea {
     private ArrayList<IDriver> drivers = new ArrayList<>();
     private String name;
     private boolean hasAdminDiscount;
-    public Area(){
-
-    }
+    public Area(){ }
 
     public Area( String name) {
         this.name = name;
@@ -46,25 +43,21 @@ public class Area implements IArea {
     }
 
     @Override
-    public void addDriver(Driver driver) {
-        if(!drivers.contains(driver)) drivers.add(driver);
-
+    public boolean addDriver(Driver driver) {
+        if(!drivers.contains(driver)){
+            return drivers.add(driver);
+        }
+        return false;
     }
     @Override
-    public void removeDriver(Driver driver) {
-        drivers.remove(driver);
-
+    public boolean removeDriver(Driver driver) {
+        return drivers.remove(driver);
     }
 
     @Override
     public String toString() {
         return name ;
     }
-
-
-
-
-
 
 
 }

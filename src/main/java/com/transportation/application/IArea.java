@@ -6,7 +6,7 @@ import com.transportation.core.Ride;
 public interface IArea {
 
     void notifyDriver(Ride ride);
-    void addDriver(Driver driver);
-    void removeDriver(Driver driver);
+    boolean addDriver(Driver driver);
+    boolean removeDriver(Driver driver);
     void setName(String name);
 }

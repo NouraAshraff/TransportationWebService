@@ -8,13 +8,13 @@ public class DriverRegister extends Registration {
     }
 
     @Override
-    public void Register( IUser iuser) {
+    public boolean Register(IUser iuser) {
         IUser result;
         result = obj.searchIUser(iuser.getUserName(), iuser.getPassword());
         if (result != null) {
-            System.out.println("This account already exist , Try to login!");
+            return false;
         } else {
-            obj.savePended(iuser);
+            return obj.savePended(iuser);
         }
     }
 

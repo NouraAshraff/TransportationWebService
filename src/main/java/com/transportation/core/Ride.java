@@ -2,10 +2,7 @@ package com.transportation.core;
 
 import com.transportation.application.IArea;
 import com.transportation.application.IRide;
-import com.transportation.application.Rate;
-import com.transportation.application.RideRequest;
 
-import java.nio.file.Path;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.ChronoField;
@@ -17,13 +14,20 @@ public class Ride implements IRide {
     private IArea Destenation ;
     private ArrayList<RideRequest> requests=new ArrayList<RideRequest>();
 
-    public Ride()
-    {
+
+    public Ride(IArea source, IArea Destenation) {
+        this.source = source;
+        this.Destenation = Destenation;
+    }
+
+    public Ride() {
 
     }
-    public void addRequest(RideRequest nwRequest){
-            requests.add(nwRequest);
+
+    public boolean addRequest(RideRequest nwRequest){
+        return requests.add(nwRequest);
     }
+
     public boolean checkHoliday(){
         LocalDate date= LocalDate.now();
         DayOfWeek day = DayOfWeek.of(date.get(ChronoField.DAY_OF_WEEK));
@@ -37,10 +41,6 @@ public class Ride implements IRide {
         return requests;
     }
 
-    public Ride(Area source, Area Destenation) {
-        this.source = source;
-        this.Destenation = Destenation;
-    }
 
     public Area getSource() {
         return (Area) source;
