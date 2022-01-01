@@ -101,19 +101,11 @@ public class User extends IUser {
         System.out.println("user req: " + userRequest);
         return (Ride) ride;
     }
-
-    public Offer chooseOffer(Ride ride) {
-        System.out.println("Choose one of these offers");
-
-        for (int i = 0; i < userRequest.getOffers().size(); i++) {
-            System.out.println((i + 1) + ":");
-            System.out.println("Price: " + userRequest.getOffers().get(i).calculatePrice());
-            System.out.println("Driver: " + (userRequest.getOffers().get(i)).getDriver());
-
-        }
-        Scanner cs = new Scanner(System.in);
-        int choise = cs.nextInt();
-        this.setOffer(userRequest.getOffers().get(choise - 1));
+    public ArrayList<Offer> getUserReqOffers(){
+        return userRequest.getOffers();
+    }
+    public Offer chooseOffer(Ride ride,Offer offer) {
+        this.setOffer(offer);
         this.setChosenRide(ride);
         calcprice();
         System.out.println("Price after discount : " + offer.getUserPrice());
@@ -122,7 +114,7 @@ public class User extends IUser {
         offer.getDriver().startRide(this);
         savedOffers.add(offer);
 
-        return userRequest.getOffers().get(choise - 1);
+        return offer;
     }
 
     public void calcprice() {

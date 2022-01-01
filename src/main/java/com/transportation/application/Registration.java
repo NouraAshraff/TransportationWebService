@@ -10,7 +10,7 @@ public abstract class Registration {
     public Registration() {
     }
 
-    public void Register(IUser iuser){
+    public boolean Register(IUser iuser){
     }
 
     public abstract boolean login(IUser iuser);
