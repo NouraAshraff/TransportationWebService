@@ -25,7 +25,7 @@ public class RideController {
         return ((Ride)ride).checkHoliday();
     }
     */
-    @GetMapping("getRwquests")
+    @GetMapping("getRequests")
     public ArrayList<RideRequest> getRequests() {
         return ((Ride)ride).getRequests();
     }
