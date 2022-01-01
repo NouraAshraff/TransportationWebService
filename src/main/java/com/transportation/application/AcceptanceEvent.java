@@ -25,8 +25,8 @@ public class AcceptanceEvent implements Event {
         this.user = user;
     }
     @Override
-    public void printEvent() {
-        System.out.println("Name : " + name+
+    public String printEvent() {
+        return ("Name : " + name+
                              "  Time : " + time +
                              "  UserName : "+ user.getUserName());
     }
