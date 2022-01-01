@@ -7,38 +7,39 @@ import com.transportation.application.IRide;
 import com.transportation.application.IUser;
 import com.transportation.core.Area;
 import com.transportation.core.Ride;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.transportation.core.User;
+import com.transportation.core.admin;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-
+@RequestMapping("/ArraySaving")
+@RestController
 public class ArraySavingController {
     ISaving arraySaving = new arraySaving();
 
     @PostMapping("/saveUser")
-    public boolean saveUser(IUser user) {
+    public boolean saveUser( @RequestBody IUser user) {
         return arraySaving.saveUser(user);
     }
 
     @PostMapping("/addAdmin")
-    public boolean addAdmin(IUser admin) {
+    public boolean addAdmin(@RequestBody admin admin) {
         return arraySaving.addAdmin(admin);
     }
 
     @PostMapping("/savePended")
-    public boolean savePended(IUser pended) {
+    public boolean savePended( @RequestBody IUser pended) {
         return arraySaving.savePended(pended);
 
     }
 
     @PostMapping("/saveArea")
-    public boolean saveArea(Area area) {
+    public boolean saveArea( @RequestBody Area area) {
         return arraySaving.saveArea(area);
     }
 
     @PostMapping("/saveRide")
-    public boolean saveRide(Ride ride) {
+    public boolean saveRide(@RequestBody Ride ride) {
         return arraySaving.saveRide(ride);
     }
 
@@ -68,17 +69,17 @@ public class ArraySavingController {
     }
 
     @GetMapping("searchRide")
-    public IRide searchRide(Area source, Area destination) {
+    public IRide searchRide( @RequestBody Area source, @RequestBody Area destination) {
         return  arraySaving.searchRide(source,destination);
     }
 
     @GetMapping("searchArea")
-    public IArea searchArea(String name) {
+    public IArea searchArea( @RequestBody String name) {
       return arraySaving.searchArea(name);
     }
 
     @GetMapping("searchAdmin")
-    public IUser searchAdmin(String userName, String Password) {
+    public IUser searchAdmin(@RequestBody String userName, @RequestBody String Password) {
        return  arraySaving.searchAdmin(userName,Password);
     }
 

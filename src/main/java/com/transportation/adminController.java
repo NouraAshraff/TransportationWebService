@@ -40,7 +40,7 @@ public class adminController {
         }
 
         @PostMapping("/loginAdmin")
-        public boolean loginAdmin(IUser iuser) {
+        public boolean loginAdmin( @RequestBody IUser iuser) {
            return admin.loginAdmin(iuser);
     }
 }

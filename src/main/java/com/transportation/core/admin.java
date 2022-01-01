@@ -13,6 +13,7 @@ public class admin extends IUser {
     public admin(){
 
     }
+
     public boolean addDiscount(Area area){
         for (Area area1:saving.retrieveArea()){
             if(area.getName()==area1.getName()){
@@ -102,9 +103,11 @@ public class admin extends IUser {
         result = saving.searchAdmin(iuser.getUserName(), iuser.getPassword());
 
         if (result == null) {
-            System.out.println("You are not an admin!");
+            saving.addAdmin(iuser);
+
+           // System.out.println("You are not an admin!");
         } else {
-            System.out.println("You logged in successfully.");
+           // System.out.println("You logged in successfully.");
             return true;
         }
         return false;

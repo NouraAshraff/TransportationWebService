@@ -2,13 +2,14 @@ package com.transportation;
 
 import com.transportation.application.Event;
 import com.transportation.application.Offer;
+import com.transportation.core.RideRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @RestController
 public class RideReqController {
-    RideReqController reqController = new RideReqController();
+    RideRequest reqController = new RideRequest();
 
     @GetMapping("/getNoOfPass")
     public int getNoOfPass() {
