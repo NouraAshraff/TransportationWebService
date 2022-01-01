@@ -7,12 +7,13 @@ import com.transportation.core.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
+@RestController
 public class UserController {
-    User user=new User();
+    User user = new User();
 
     @GetMapping("/getUserRide")
     public IRide getChosenRide() {
@@ -38,22 +39,21 @@ public class UserController {
     public RideRequest getUserRequest() {
         return user.getUserRequest();
     }
+
     @PostMapping("/reqRide")
-    public Ride requestRide(@RequestBody IRide ride,@RequestBody int noOfPass){
-        return user.requestRide(ride,noOfPass);
+    public Ride requestRide(@RequestBody IRide ride, @RequestBody int noOfPass) {
+        return user.requestRide(ride, noOfPass);
     }
 
     @GetMapping("/getUserReqOffers")
-    public ArrayList<Offer> getUserReqOffers(){
+    public ArrayList<Offer> getUserReqOffers() {
         return user.getUserReqOffers();
     }
 
     @GetMapping("/chooseOffer")
-    public Offer chooseOffer(@RequestBody Ride ride,@RequestBody Offer offer) {
-        return user.chooseOffer(ride,offer);
+    public Offer chooseOffer(@RequestBody Ride ride, @RequestBody Offer offer) {
+        return user.chooseOffer(ride, offer);
     }
-
-
 
 
 }
