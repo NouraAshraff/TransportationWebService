@@ -5,6 +5,10 @@ public class TenPresentDiscount extends Discount {
     public TenPresentDiscount(IOffer ioffer) {
         super(ioffer);
     }
+
+    public TenPresentDiscount() {
+    }
+
     @Override
     public double calculatePrice() {
         iOffer.calculatePrice();

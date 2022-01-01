@@ -99,7 +99,7 @@ public class arraySaving implements ISaving {
                 return area;
             }
         }
-        IArea nwArea = new Area();
+        IArea nwArea = new Area(name);
         nwArea.setName(name);
         save((Area) nwArea);
         return nwArea;

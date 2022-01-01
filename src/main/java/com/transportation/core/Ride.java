@@ -61,7 +61,7 @@ public class Ride implements IRide {
 
     @Override
     public String toString() {
-        return "Ride [source=\n" + source+ "\nDestenation=\n" + Destenation +"]";
+        return "Ride [source = " + source+ " Destenation = " + Destenation +"]";
     }
 
 

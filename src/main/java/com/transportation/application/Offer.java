@@ -7,6 +7,9 @@ public class Offer implements IOffer {
     private double UserPrice ;
     private Driver driver ;
 
+    public Offer() {
+    }
+
     public double getUserPrice() {
         return UserPrice;
     }

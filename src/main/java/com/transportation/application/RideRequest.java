@@ -1,5 +1,6 @@
 package com.transportation.application;
 
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -9,6 +10,14 @@ public class RideRequest{
     private int noOfPass;
     private ArrayList<Offer> offers=new ArrayList<>();
     private ArrayList <Event> events = new ArrayList<>();
+    public RideRequest(){
+
+    }
+
+    /*public RideRequest(int num ){
+
+        noOfPass=num;
+    }*/
 
     public void setNoOfPass(int noOfPass) {
         this.noOfPass = noOfPass;

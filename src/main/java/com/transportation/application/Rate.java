@@ -9,6 +9,9 @@ public class Rate {
           return rates;
      }
 
+     public Rate() {
+     }
+
      public double averageRating(){
           double sum=0.0;
           int i=0;
@@ -19,8 +22,8 @@ public class Rate {
           return sum/i;
 
      }
-     public void addRate(int rate){
-          rates.add(rate);
+     public boolean addRate(int rate){
+           return rates.add(rate);
      }
 
 

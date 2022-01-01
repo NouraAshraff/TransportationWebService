@@ -4,6 +4,9 @@ package com.transportation.application;
 import com.transportation.core.Driver;
 
 public class DriverRegister extends Registration {
+    public DriverRegister() {
+    }
+
     @Override
     public void Register( IUser iuser) {
         IUser result;

@@ -1,6 +1,9 @@
 package com.transportation.application;
 
 public class AdminRegister extends Registration {
+    AdminRegister(){
+
+    }
     @Override
 
     public boolean login(IUser iuser) {

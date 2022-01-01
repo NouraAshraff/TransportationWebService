@@ -13,6 +13,9 @@ public class AcceptanceEvent implements Event {
     private String name = "User accepts the captain price";
 
     private String time;
+    public AcceptanceEvent(){
+
+    }
 
     public AcceptanceEvent(User user )
     {

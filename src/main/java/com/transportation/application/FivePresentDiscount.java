@@ -1,6 +1,8 @@
 package com.transportation.application;
 
 public class FivePresentDiscount extends Discount{
+    public FivePresentDiscount() {
+    }
 
     public FivePresentDiscount(IOffer ioffer) {
         super(ioffer);

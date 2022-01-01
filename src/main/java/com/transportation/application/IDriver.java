@@ -8,11 +8,16 @@ import java.util.ArrayList;
 
 public interface IDriver {
     double getAvgRating();
-    void rateMe(int rate , User user);
+    boolean rateMe(int rate , User user);
     void makeOffer(Ride ride , double price);
-    void AddNewFavArea(Area area);
+    boolean AddNewFavArea(Area area);
     ArrayList<Ride> getRides();
-    void addRide(Ride ride);
-    void listRides();
+    boolean addRide(Ride ride);
+    //ArrayList<String> listRides();
     ArrayList<Area> getFavAreas();
+    double calcbalance(double price);
+    ArrayList<RideRequest> getDriverRequsets();
+    boolean addDriverReq(RideRequest nwRequest);
+    boolean startRide(User user);
+    boolean endRide(User user);
 }

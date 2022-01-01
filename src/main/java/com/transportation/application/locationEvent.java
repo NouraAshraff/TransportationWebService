@@ -11,7 +11,11 @@ public class locationEvent implements Event {
     private String name;
     private String time;
 
-    public locationEvent(User user , Driver driver ,String name)
+    public locationEvent() {
+
+    }
+
+    public locationEvent(User user , Driver driver , String name)
     {
         this.name=name;
         LocalTime time = LocalTime.now();

@@ -3,6 +3,9 @@ package com.transportation.application;
 import com.transportation.core.User;
 
 public class UserRegister extends Registration {
+    public UserRegister() {
+    }
+
     @Override
     public void Register(IUser iuser) {
         IUser result;

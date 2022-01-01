@@ -3,11 +3,15 @@ package com.transportation.application;
 import java.time.LocalTime;
 
 public class PriceEvent implements Event {
+
     private Offer offer ;
 
     private String name = " Captain put a price to the ride";
 
     private String time;
+
+    public PriceEvent() {
+    }
 
     public PriceEvent(Offer offer )
     {
