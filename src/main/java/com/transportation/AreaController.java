@@ -4,6 +4,7 @@ import com.transportation.application.IArea;
 import com.transportation.core.Area;
 import com.transportation.core.Driver;
 import com.transportation.core.Ride;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,7 +32,7 @@ public class AreaController {
         return  area.addDriver(driver);
     }
 
-    @PostMapping("/removeDriver")
+    @DeleteMapping("/removeDriver")
     public boolean removeDriver(@RequestBody Driver driver) {
         return  area.removeDriver(driver);
 

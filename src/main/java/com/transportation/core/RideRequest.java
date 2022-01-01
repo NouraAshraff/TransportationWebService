@@ -7,20 +7,15 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class RideRequest{
-    private boolean start,end;
+public class RideRequest {
+    private boolean start, end;
     private String date;
     private int noOfPass;
-    private ArrayList<Offer> offers=new ArrayList<>();
-    private ArrayList <Event> events = new ArrayList<>();
-    public RideRequest(){
+    private ArrayList<Offer> offers = new ArrayList<>();
+    private ArrayList<Event> events = new ArrayList<>();
 
+    public RideRequest() {
     }
-
-    /*public RideRequest(int num ){
-
-        noOfPass=num;
-    }*/
 
     public void setNoOfPass(int noOfPass) {
         this.noOfPass = noOfPass;
@@ -29,30 +24,34 @@ public class RideRequest{
     public int getNoOfPass() {
         return noOfPass;
     }
-    public void addOffer(Offer newOffer) {
-        offers.add(newOffer);
+
+    public boolean addOffer(Offer newOffer) {
+        return offers.add(newOffer);
     }
+
     public ArrayList<Offer> getOffers() {
         return offers;
     }
+
     public String getDate() {
         return date;
     }
+
     public void setDate(String date) {
-        LocalDate date1= LocalDate.now();
+        LocalDate date1 = LocalDate.now();
         this.date = date1.toString();
     }
-    public void addEvent(Event event)
-    {
-        events.add(event);
+
+    public boolean addEvent(Event event) { return events.add(event); }
+
+    public boolean removeEvent(Event event) {
+        return events.remove(event);
     }
-    public void removeEvent(Event event)
-    {
-        events.remove(event);
-    }
+
     public ArrayList<Event> getEvents() {
         return events;
     }
+
     public void setStart(boolean start) {
         this.start = start;
     }
