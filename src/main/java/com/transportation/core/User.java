@@ -5,7 +5,6 @@ import com.transportation.application.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class User extends IUser {
     private String phoneNum;
@@ -96,9 +95,9 @@ public class User extends IUser {
             userRequest = nwRequest;
             ride.checkSourceArea(((Ride) ride).getSource());
         }
-        System.out.println("after adding request:");
+        /*System.out.println("after adding request:");
         System.out.println(((Ride) ride).getRequests());
-        System.out.println("user req: " + userRequest);
+        System.out.println("user req: " + userRequest);*/
         return (Ride) ride;
     }
     public ArrayList<Offer> getUserReqOffers(){
@@ -108,7 +107,7 @@ public class User extends IUser {
         this.setOffer(offer);
         this.setChosenRide(ride);
         calcprice();
-        System.out.println("Price after discount : " + offer.getUserPrice());
+        //System.out.println("Price after discount : " + offer.getUserPrice());
         Event event1 = new AcceptanceEvent(this);
         userRequest.addEvent(event1);
         offer.getDriver().startRide(this);
@@ -129,17 +128,17 @@ public class User extends IUser {
             offer = new FivePresentDiscount(offer);
         }
         if (savedOffers.size() == 0) {
-            System.out.println("cccccccc");
+            //System.out.println("cccccccc");
             offer = new TenPresentDiscount(offer);
         }
         if (chosenRide.checkHoliday() == true) {
             offer = new FivePresentDiscount(offer);
         }
         this.offer.setUserPrice(offer.calculatePrice());
-        System.out.println("-----------------user--------------------");
+        /*System.out.println("-----------------user--------------------");
         System.out.println(this.offer.getUserPrice());
         System.out.println("------------------driver-------------------");
-        System.out.println(this.offer.getdriverPrice());
+        System.out.println(this.offer.getdriverPrice());*/
     }
 
     @Override
