@@ -14,7 +14,7 @@ public class RideController {
     IRide ride= new Ride();
 
 
-    @PostMapping("addRequest")
+    @PostMapping("/addRequest")
     public boolean addRequest(@RequestBody RideRequest nwRequest){
         return  ((Ride)ride).addRequest(nwRequest);
     }
@@ -25,17 +25,17 @@ public class RideController {
         return ((Ride)ride).checkHoliday();
     }
     */
-    @GetMapping("getRequests")
+    @GetMapping("/getRequests")
     public ArrayList<RideRequest> getRequests() {
         return ((Ride)ride).getRequests();
     }
 
-    @GetMapping("getSource")
+    @GetMapping("/getSource")
     public Area getSource() {
         return ((Ride)ride).getSource();
     }
 
-    @GetMapping("getDestenation")
+    @GetMapping("/getDestenation")
     public Area getDestenation() {
         return ((Ride)ride).getDestenation();
     }

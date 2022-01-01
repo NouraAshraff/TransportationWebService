@@ -2,6 +2,7 @@ package com.transportation.core;
 
 import com.transportation.Persistence.ISaving;
 import com.transportation.Persistence.arraySaving;
+import com.transportation.application.Event;
 import com.transportation.application.IUser;
 
 
@@ -12,34 +13,40 @@ public class admin extends IUser {
     public admin(){
 
     }
-    public void addDiscount(Area area){
+    public boolean addDiscount(Area area){
         for (Area area1:saving.retrieveArea()){
             if(area.getName()==area1.getName()){
                 area.setHasAdminDiscount(true);
+                return true;
             }
         }
+        return false;
     }
 
-    public void showEvents(RideRequest req)
+    public ArrayList<String> showEvents(RideRequest req)
     {
-
+     ArrayList<String>printing= new ArrayList<>();
+       // for (RideRequest req:ride.getRequests()) {
             for(int j=0;j<req.getEvents().size();j++){
-                req.getEvents().get(j).printEvent();
+               printing.add( req.getEvents().get(j).printEvent());
             }
-
+             return printing;
+        //}
 
     }
 
-    public void suspend(IUser user) {
+    public boolean suspend(IUser user) {
         for (IUser iuser : saving.retrieveUsers()) {
             if (iuser.equals(user)) {
                 if(iuser instanceof User) ((User)iuser).setVerified(false);
                 if(iuser instanceof Driver) ((Driver)iuser).setVerified(false);
                 saving.savePended(user);
                 saving.retrieveUsers().remove(user);
-                break;
+                return true;
+
             }
         }
+        return false;
     }
 
     @Override
@@ -71,7 +78,7 @@ public class admin extends IUser {
         return "admin [name=" + this.userName + "pass"+ this.password+"]";
     }
 
-    public void verify(IUser driver) {
+    public boolean verify(IUser driver) {
         for (IUser itdriver : saving.retrievePended()) {
             //System.out.println( "in loop"+itdriver.toString());
             if (driver.equals(itdriver) && itdriver instanceof Driver) {
@@ -79,17 +86,18 @@ public class admin extends IUser {
                 // System.out.println( "in if");
                 saving.retrievePended().remove(driver);
                 saving.saveUser(driver);
-                break;
+                return true;
             }
 
         }
+        return false;
     }
 
     public ArrayList<IUser> listPendingRegistration() {
         return saving.retrievePended();
     }
 
-    public void loginAdmin(IUser iuser) {
+    public boolean loginAdmin(IUser iuser) {
         IUser result;
         result = saving.searchAdmin(iuser.getUserName(), iuser.getPassword());
 
@@ -97,6 +105,8 @@ public class admin extends IUser {
             System.out.println("You are not an admin!");
         } else {
             System.out.println("You logged in successfully.");
+            return true;
         }
+        return false;
     }
 }

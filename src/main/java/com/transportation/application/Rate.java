@@ -8,9 +8,13 @@ public class Rate {
      public ArrayList<Integer> getRates() {
           return rates;
      }
+      public Rate(){
 
-     public Rate() {
+      }
+     public Rate(int rate) {
+          rates.add(rate);
      }
+
 
      public double averageRating(){
           double sum=0.0;

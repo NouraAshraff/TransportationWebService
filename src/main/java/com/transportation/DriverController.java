@@ -7,12 +7,11 @@ import java.util.ArrayList;
 @RestController
 public class DriverController  {
     private IDriver driver;
-
-    public DriverController(){
+     DriverController(){
         driver= new Driver();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addDriverReq")
     public boolean addDriverReq(@RequestBody RideRequest nwRequest){
        return driver.addDriverReq(nwRequest);
     }
@@ -34,14 +33,14 @@ public class DriverController  {
         return driver.AddNewFavArea(area);
     }
 
-    @PostMapping("/rateDriver/{rate}")
-    public boolean rateMe(@PathVariable int rate ,@RequestBody User user)
+    @PostMapping("/rateDriver")
+    public boolean rateMe(@RequestBody int rate ,@RequestBody User user)
     {
        return driver.rateMe(rate,user);
     }
 
-
-    public void makeOffer(Ride ride , double price)
+   @PostMapping("/makeOffer")
+    public void makeOffer(@RequestBody Ride ride ,@RequestBody double price)
     {
         driver.makeOffer(ride,price);
     }
@@ -52,15 +51,14 @@ public class DriverController  {
         return driver.getFavAreas();
     }
 
-   /* @GetMapping("/listRides")
+    @GetMapping("/listRides")
     public ArrayList<String> listRides()
     {
       return driver.listRides();
-    }*/
-
-    public String toString() {
-        return driver.toString();
     }
+    /*public String toString() {
+        return driver.toString();
+    }*/
 
     @GetMapping("/getRides")
     public ArrayList<Ride> getRides()
