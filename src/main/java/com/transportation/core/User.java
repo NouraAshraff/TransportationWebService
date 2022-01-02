@@ -90,11 +90,11 @@ public class User extends IUser {
             LocalDate date = LocalDate.now();
             nwRequest.setDate(date.toString());
             nwRequest.setNoOfPass(noOfPass);
-            ((Ride) ride).addRequest(nwRequest);
             userRequest = nwRequest;
-            //ride.checkSourceArea(((Ride) ride).getSource());
+        }else nwRequest=userRequest;
+            ((Ride) ride).addRequest(nwRequest);
+            ride.checkSourceArea(((Ride) ride).getSource());
             if(((Ride) ride).getSource()!=null)((Ride) ride).getSource().notifyDriver((Ride) ride);
-        }
         return (Ride) ride;
     }
     public ArrayList<Offer> getUserReqOffers(){

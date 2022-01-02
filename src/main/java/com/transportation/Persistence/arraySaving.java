@@ -54,8 +54,9 @@ public class arraySaving implements ISaving {
     public boolean saveRide(Ride ride) {
         if (!rides.contains(ride)) {
             rides.add(ride);
-            this.saveArea((Area) ride.getSource());
-            this.saveArea((Area) ride.getDestenation());
+            this.saveArea( ride.getSource());
+            this.saveArea( ride.getDestenation());
+            return  true;
         }
         return false;
     }
