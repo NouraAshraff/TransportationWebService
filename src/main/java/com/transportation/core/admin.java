@@ -81,13 +81,10 @@ public class admin extends IUser {
 
     public boolean verify(IUser driver) {
         for (IUser itdriver : saving.retrievePended()) {
-            //System.out.println( "in loop"+itdriver.toString());
             if (driver.equals(itdriver) && itdriver instanceof Driver) {
                 ((Driver) driver).setVerified(true);
-                // System.out.println( "in if");
                 saving.retrievePended().remove(driver);
-                saving.saveUser(driver);
-                return true;
+                return saving.saveUser(driver);
             }
 
         }

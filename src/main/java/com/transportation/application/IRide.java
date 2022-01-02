@@ -1,5 +1,7 @@
 package com.transportation.application;
 
+import com.transportation.core.Area;
+
 public interface IRide{
-   void checkSourceArea (IArea area);
+   void checkSourceArea (Area area);
 }

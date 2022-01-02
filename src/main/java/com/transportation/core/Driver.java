@@ -140,23 +140,18 @@ public class Driver extends IUser implements IDriver {
         choosenRide = ride;
         Offer newOffer = new Offer();
         for (RideRequest r : ride.getRequests()) {
-            // System.out.println("less noOfPass: "+r.getNoOfPass());
             if (MAX_PASS >= r.getNoOfPass() + noOfPass) {
                 noOfPass += r.getNoOfPass();
                 newOffer.setDriver(this);
                 newOffer.setdriverPrice(price);
-                //    System.out.println("newOffer data:"+newOffer);
                 newOffer.to_String();
                 r.addOffer(newOffer);
-                // System.out.println("request offer: "+r.getOffers().toString());
                 Event event = new PriceEvent(newOffer);
                 r.addEvent(event);
                 addDriverReq(r);
 
             }
         }
-        //System.out.println("Driver make offer ride req: ");
-        //System.out.println(ride.getRequests());
 
     }
 
@@ -180,11 +175,6 @@ public class Driver extends IUser implements IDriver {
         }
         return out;
     }
-
-    /* public String toString() {
-           return "Driver( username "+userName+"balance "+balance+" ,Avg rating "+getAvgRating()+
-                   " ,email "+email+" ,Driving License" + getDrivingLicense() + " ,National ID" + getNationalId()+")"+"\n";
-       }*/
     @Override
     public ArrayList<Ride> getRides() {
         return rides;

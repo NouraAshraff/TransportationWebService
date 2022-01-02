@@ -40,8 +40,8 @@ public class DriverController  {
        return driver.rateMe(rate,user);
     }
 
-   @PostMapping("/makeOffer")
-    public void makeOffer(@RequestBody Ride ride ,@RequestBody double price)
+   @PostMapping("/makeOffer/{price}")
+    public void makeOffer(@RequestBody Ride ride ,@PathVariable double price)
     {
         driver.makeOffer(ride,price);
     }
@@ -57,9 +57,6 @@ public class DriverController  {
     {
       return driver.listRides();
     }
-    /*public String toString() {
-        return driver.toString();
-    }*/
 
     @GetMapping("/getRides")
     public ArrayList<Ride> getRides()

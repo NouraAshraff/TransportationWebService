@@ -31,13 +31,13 @@ public class adminController {
         }
 
         @PutMapping("/verify/{name}/{password}")
-        public String verify(@PathVariable String name,@PathVariable String password) {
-            IUser driver= admin.saving.searchIUser(name,password);
+        public boolean verify(@PathVariable String name,@PathVariable String password) {
+            IUser driver= admin.saving.searchPended(name,password);
             if(driver==null){
-                return "false";
+                return false;
             }
 
-            return "admin.verify(driver)"+driver.getUserName();
+            return admin.verify(driver);
         }
 
         @GetMapping("/list")

@@ -42,14 +42,10 @@ public class ArraySavingController {
         return arraySaving.saveRide(ride);
     }
 
-   /* @GetMapping("/retrieveUser")
-    public ArrayList<User> retrieveUsers() {
-        ArrayList<User> users=new ArrayList<>();
-        for (IUser user:arraySaving.retrieveUsers()) {
-            users.add((User) user);
-        }
-        return users;
-    }*/
+   @GetMapping("/retrieveUser")
+    public ArrayList<IUser> retrieveUsers() {
+        return arraySaving.retrieveUsers();
+    }
 
     @GetMapping("/retrievePended")
     public ArrayList<IUser> retrievePended() {
@@ -66,22 +62,22 @@ public class ArraySavingController {
         return arraySaving.retrieveRide();
     }
 
-    @GetMapping("searchUser")
+    @GetMapping("/searchUser")
     public IUser searchIUser(@RequestBody String userName, @RequestBody String password) {
         return arraySaving.searchIUser(userName,password);
     }
 
-    @GetMapping("searchRide")
-    public IRide searchRide( @RequestBody Area source, @RequestBody Area destination) {
+    @GetMapping("/searchRide/{destination}")
+    public IRide searchRide( @RequestBody Area source, @PathVariable Area destination) {
         return  arraySaving.searchRide(source,destination);
     }
 
-    @GetMapping("searchArea")
+    @GetMapping("/searchArea")
     public IArea searchArea( @RequestBody String name) {
       return arraySaving.searchArea(name);
     }
 
-    @GetMapping("searchAdmin")
+    @GetMapping("/searchAdmin")
     public IUser searchAdmin(@RequestBody String userName, @RequestBody String Password) {
        return  arraySaving.searchAdmin(userName,Password);
     }

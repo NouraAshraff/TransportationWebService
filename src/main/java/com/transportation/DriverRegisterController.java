@@ -4,6 +4,7 @@ import com.transportation.application.DriverRegister;
 import com.transportation.application.IUser;
 import com.transportation.application.Registration;
 import com.transportation.core.Driver;
+import com.transportation.core.User;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,18 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DriverRegisterController {
     Registration register = new DriverRegister();
-
-    @PostMapping("/driverRegister/{userName}/{email}/{phoneNo}/{drivingLicense}/{nationalId}/{password}")
-    public boolean Register(@PathVariable String userName, @PathVariable String email,
-                            @PathVariable String phoneNo, @PathVariable String drivingLicense,
-                            @PathVariable String nationalId, @PathVariable String password) {
-        IUser driver=new Driver(userName,password,drivingLicense,nationalId,phoneNo,email);
-        return register.Register(driver);
+    public static class PersonContext{
+        public String userName;
+        public String password;
+        PersonContext(String userName,String password){
+            this.password=password;
+            this.userName=userName;
+        }
     }
-
-    @PostMapping("/driverLogin/{userName}/{password}")
-    public boolean login( @PathVariable String userName,@PathVariable String password) {
-        IUser iuser= register.isaving.searchIUser(userName,password);
+    @PostMapping("/driverRegister")
+    public boolean Register( @RequestBody Driver iuser ) {
+        return register.Register(iuser);
+    }
+    @PostMapping("/driverLogin")
+    public boolean login(@RequestBody PersonContext userData) {
+        IUser iuser= register.isaving.searchIUser(userData.userName,userData.password);
         return  register.login(iuser);
     }
+
 }

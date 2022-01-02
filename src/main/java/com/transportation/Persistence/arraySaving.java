@@ -86,6 +86,15 @@ public class arraySaving implements ISaving {
         return null;
     }
     @Override
+    public IUser searchPended(String userName, String Password) {
+        for (IUser user : pending) {
+            if (userName.equals(user.getUserName()) && Password.equals(user.getPassword())) {
+                return user;
+            }
+        }
+        return null;
+    }
+    @Override
     public IRide searchRide(Area source, Area destination) {
         for (IRide ride : rides) {
             if (source.equals(((Ride)ride).getSource()) && destination.equals(((Ride)ride).getDestenation())) {

@@ -24,11 +24,9 @@ public class UserRegister extends Registration {
         IUser result;
         result = isaving.searchIUser(iuser.getUserName(), iuser.getPassword());
         if ( result!=null && iuser instanceof User) {
-            if (((User) iuser).getVerified() == true) {
-               // System.out.println("You logged in successfully.");
+            if (((User) iuser).getVerified()) {
                 return true;
             } else {
-               // System.out.println("You are not verified yet!");
                 return  false;
             }
         }

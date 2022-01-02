@@ -4,10 +4,7 @@ import com.transportation.application.*;
 import com.transportation.core.RideRequest;
 import com.transportation.core.Ride;
 import com.transportation.core.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -40,8 +37,8 @@ public class UserController {
         return user.getUserRequest();
     }
 
-    @PostMapping("/reqRide")
-    public Ride requestRide(@RequestBody IRide ride, @RequestBody int noOfPass) {
+    @PostMapping("/reqRide/{noOfPass}")
+    public Ride requestRide(@RequestBody Ride ride, @PathVariable int noOfPass) {
         return user.requestRide(ride, noOfPass);
     }
 

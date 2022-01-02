@@ -10,12 +10,12 @@ import java.util.ArrayList;
 
 public class Ride implements IRide {
 
-    private IArea source;
-    private IArea Destenation ;
+    private Area source;
+    private Area Destenation ;
     private ArrayList<RideRequest> requests=new ArrayList<RideRequest>();
 
 
-    public Ride(IArea source, IArea Destenation) {
+    public Ride(Area source, Area Destenation) {
         this.source = source;
         this.Destenation = Destenation;
     }
@@ -46,7 +46,7 @@ public class Ride implements IRide {
         return (Area) source;
     }
 
-    public void setSource(IArea source) {
+    public void setSource(Area source) {
         this.source = source;
     }
 
@@ -54,21 +54,17 @@ public class Ride implements IRide {
         return(Area) Destenation;
     }
 
-    public void setDestenation(IArea Destenation) {
+    public void setDestenation(Area Destenation) {
         this.Destenation = Destenation;
     }
 
     // may we put this fun in the constractor of the ride
-    public void checkSourceArea (IArea area){
+    public void checkSourceArea (Area area){
         if(area instanceof Area){
             area.notifyDriver(this);
         }
     }
 
-    @Override
-    public String toString() {
-        return "Ride [source = " + source+ " Destenation = " + Destenation +"]";
-    }
 
 
 }

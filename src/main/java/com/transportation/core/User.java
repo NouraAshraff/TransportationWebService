@@ -94,13 +94,11 @@ public class User extends IUser {
             userRequest = nwRequest;
             ride.checkSourceArea(((Ride) ride).getSource());
         }
-        /*System.out.println("after adding request:");
-        System.out.println(((Ride) ride).getRequests());
-        System.out.println("user req: " + userRequest);*/
         return (Ride) ride;
     }
     public ArrayList<Offer> getUserReqOffers(){
-        return userRequest.getOffers();
+        if(userRequest!=null)return userRequest.getOffers();
+        return null;
     }
     public Offer chooseOffer(Ride ride,Offer offer) {
         this.setOffer(offer);
