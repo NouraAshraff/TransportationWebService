@@ -106,9 +106,9 @@ public class arraySaving implements ISaving {
                 return ride;
             }
         }
-        IRide ride = new Ride(source,destination);
-        saveRide((Ride) ride);
-        return ride;
+        /*IRide ride = new Ride(source,destination);
+        saveRide((Ride) ride);*/
+        return null;
     }
     @Override
     public IArea searchArea(String name) {
@@ -117,8 +117,8 @@ public class arraySaving implements ISaving {
                 return area;
             }
         }
-       IArea nwArea = new Area(name);
-        saveArea((Area) nwArea);
+       /*IArea nwArea = new Area(name);
+        saveArea((Area) nwArea);*/
         return null;
     }
 

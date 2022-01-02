@@ -16,10 +16,11 @@ public class admin extends IUser {
 
     public boolean addDiscount(Area area){
         for (Area area1:saving.retrieveArea()){
-            if(area.getName()==area1.getName()){
-                area.setHasAdminDiscount(true);
+            if(area.getName().equals(area1.getName())){
+                area1.setHasAdminDiscount(true);
                 return true;
             }
+
         }
         return false;
     }
@@ -38,11 +39,11 @@ public class admin extends IUser {
 
     public boolean suspend(IUser user) {
         for (IUser iuser : saving.retrieveUsers()) {
-            if (iuser.equals(user)) {
+            if (iuser.getUserName().equals(user.getUserName())&&iuser.getPassword().equals(user.getPassword())) {
                 if(iuser instanceof User) ((User)iuser).setVerified(false);
                 if(iuser instanceof Driver) ((Driver)iuser).setVerified(false);
-                saving.savePended(user);
-                saving.retrieveUsers().remove(user);
+                saving.savePended(iuser);
+                saving.retrieveUsers().remove(iuser);
                 return true;
 
             }

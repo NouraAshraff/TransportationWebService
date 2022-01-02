@@ -85,8 +85,9 @@ public class User extends IUser {
 
 
     public Ride requestRide(IRide ride, int noOfPass) {
+        if (ride==null) return  null;
         RideRequest nwRequest = new RideRequest();
-        if (userRequest == null) {
+        if (userRequest == null||userRequest.getNoOfPass()!=noOfPass) {
             LocalDate date = LocalDate.now();
             nwRequest.setDate(date.toString());
             nwRequest.setNoOfPass(noOfPass);

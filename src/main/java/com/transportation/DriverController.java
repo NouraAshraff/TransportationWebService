@@ -12,7 +12,7 @@ public class DriverController  {
      DriverController(){
         driver= new Driver();
     }
-
+    ISaving saving= arraySaving.getInstance();
     @PostMapping("/addDriverReq")
     public boolean addDriverReq(@RequestBody RideRequest nwRequest){
        return driver.addDriverReq(nwRequest);
@@ -29,14 +29,16 @@ public class DriverController  {
         return driver.calcbalance(price);
     }
 
-    @PostMapping("/AddNewFavArea")
-    public boolean AddNewFavArea(@RequestBody Area area)
-    {
-        return driver.AddNewFavArea(area);
+    @PostMapping("/AddNewFavArea/{name}/{pass}")
+    public boolean AddNewFavArea(@RequestBody Area area,@PathVariable String name,@PathVariable String pass)
+    {   Driver driver1= (Driver) saving.searchIUser(name,pass);
+        Area area1= (Area) saving.searchArea(area.getName());
+        area.addDriver(driver1);
+        return driver.AddNewFavArea(area1);
     }
 
-    @PostMapping("/rateDriver")
-    public boolean rateMe(@RequestBody int rate ,@RequestBody User user)
+    @PostMapping("/rateDriver/{rate}")
+    public boolean rateMe(@PathVariable int rate ,@RequestBody User user)
     {
        return driver.rateMe(rate,user);
     }

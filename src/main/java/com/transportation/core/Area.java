@@ -42,10 +42,6 @@ public class Area implements IArea {
 
     }
 
-    public ArrayList<IDriver> getDrivers() {
-        return drivers;
-    }
-
     @Override
     public boolean addDriver(Driver driver) {
         if(!drivers.contains(driver)){
@@ -58,10 +54,6 @@ public class Area implements IArea {
         return drivers.remove(driver);
     }
 
-    /*@Override
-    public String toString() {
-        return name ;
-    }*/
 
 
 }

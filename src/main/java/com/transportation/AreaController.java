@@ -25,8 +25,8 @@ public class AreaController {
          area.notifyDriver(ride);
     }
 
-    @PostMapping("/addDriver")
-    public boolean addDriver(@RequestBody Driver driver) {
+    @PostMapping("/addDriver/{area}")
+    public boolean addDriver(@RequestBody Driver driver,@PathVariable Area area) {
         return  area.addDriver(driver);
     }
 

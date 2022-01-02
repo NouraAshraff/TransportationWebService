@@ -1,8 +1,6 @@
 package com.transportation;
 import com.transportation.application.IUser;
-import com.transportation.core.Area;
-import com.transportation.core.RideRequest;
-import com.transportation.core.admin;
+import com.transportation.core.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -15,8 +13,8 @@ public class adminController {
         }
 
         @PostMapping("/addDiscount")
-        public void addDiscount(@RequestBody Area area){
-           admin.addDiscount(area);
+        public boolean addDiscount(@RequestBody Area area){
+           return admin.addDiscount(area);
         }
 
         @GetMapping("/showEvents")
@@ -25,11 +23,14 @@ public class adminController {
            return admin.showEvents(req);
         }
 
-        @PutMapping("/suspend")
-        public boolean suspend( @RequestBody IUser user) {
-           return admin.suspend(user);
+        @PutMapping("/suspendUser")
+        public boolean suspend( @RequestBody User user) {
+            return admin.suspend(user);
         }
-
+        @PutMapping("/suspendDriver")
+        public boolean suspend( @RequestBody Driver driver) {
+            return admin.suspend(driver);
+        }
         @PutMapping("/verify/{name}/{password}")
         public boolean verify(@PathVariable String name,@PathVariable String password) {
             IUser driver= admin.saving.searchPended(name,password);

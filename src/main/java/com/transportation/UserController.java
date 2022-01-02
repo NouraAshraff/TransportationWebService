@@ -1,5 +1,7 @@
 package com.transportation;
 
+import com.transportation.Persistence.ISaving;
+import com.transportation.Persistence.arraySaving;
 import com.transportation.application.*;
 import com.transportation.core.RideRequest;
 import com.transportation.core.Ride;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
 @RestController
 public class UserController {
     User user = new User();
-
+    ISaving saving= arraySaving.getInstance();
     @GetMapping("/getUserRide")
     public IRide getChosenRide() {
         return user.getChosenRide();
@@ -39,7 +41,8 @@ public class UserController {
 
     @PostMapping("/reqRide/{noOfPass}")
     public Ride requestRide(@RequestBody Ride ride, @PathVariable int noOfPass) {
-        return user.requestRide(ride, noOfPass);
+        Ride ride1= (Ride) saving.searchRide(ride.getSource(),ride.getDestenation());
+        return user.requestRide(ride1, noOfPass);
     }
 
     @GetMapping("/getUserReqOffers")
