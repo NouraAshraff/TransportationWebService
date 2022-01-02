@@ -20,11 +20,10 @@ public class User extends IUser {
         super();
     }
 
-    public User(String userName, String password, String phoneNum, String email, Offer offer) {
+    public User(String userName, String password, String phoneNum, String email) {
         super(userName, password);
         this.phoneNum = phoneNum;
         this.email = email;
-        this.offer = offer;
 
     }
 

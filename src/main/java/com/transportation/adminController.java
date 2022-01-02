@@ -30,9 +30,14 @@ public class adminController {
            return admin.suspend(user);
         }
 
-        @PutMapping("/verify")
-        public boolean verify(@RequestBody IUser driver) {
-            return admin.verify(driver);
+        @PutMapping("/verify/{name}/{password}")
+        public String verify(@PathVariable String name,@PathVariable String password) {
+            IUser driver= admin.saving.searchIUser(name,password);
+            if(driver==null){
+                return "false";
+            }
+
+            return "admin.verify(driver)"+driver.getUserName();
         }
 
         @GetMapping("/list")

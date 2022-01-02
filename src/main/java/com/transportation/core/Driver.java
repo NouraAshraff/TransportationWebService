@@ -36,13 +36,13 @@ public class Driver extends IUser implements IDriver {
     }
 
     public Driver(String userName, String password, String drivingLicense,
-                  String nationalId, String phoneNum, String email, double balance) {
+                  String nationalId, String phoneNum, String email) {
         super(userName, password);
         this.drivingLicense = drivingLicense;
         this.nationalId = nationalId;
         this.phoneNum = phoneNum;
         this.email = email;
-        this.balance = balance;
+        this.balance = 0;
 
     }
 

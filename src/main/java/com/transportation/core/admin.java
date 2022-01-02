@@ -9,7 +9,7 @@ import com.transportation.application.IUser;
 import java.util.ArrayList;
 
 public class admin extends IUser {
-    ISaving saving = new arraySaving();
+    public ISaving saving = new arraySaving();
     public admin(){
 
     }

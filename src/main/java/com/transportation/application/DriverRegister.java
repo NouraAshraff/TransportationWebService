@@ -22,7 +22,7 @@ public class DriverRegister extends Registration {
     public boolean login(IUser iuser) {
 
         IUser result;
-        result = isaving.searchIUser(iuser.getUserName(), iuser.getPassword());
+        result = iuser;
         if (iuser instanceof Driver&&result!=null) {
 
             if (((Driver) iuser).getVerified() == true) {

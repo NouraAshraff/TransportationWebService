@@ -18,7 +18,7 @@ public class ArraySavingController {
     ISaving arraySaving = new arraySaving();
 
     @PostMapping("/saveUser")
-    public boolean saveUser( @RequestBody IUser user) {
+    public boolean saveUser( @RequestBody User user) {
         return arraySaving.saveUser(user);
     }
 
@@ -42,10 +42,14 @@ public class ArraySavingController {
         return arraySaving.saveRide(ride);
     }
 
-    @GetMapping("/retrieveUser")
-    public ArrayList<IUser> retrieveUsers() {
-        return arraySaving.retrieveUsers();
-    }
+   /* @GetMapping("/retrieveUser")
+    public ArrayList<User> retrieveUsers() {
+        ArrayList<User> users=new ArrayList<>();
+        for (IUser user:arraySaving.retrieveUsers()) {
+            users.add((User) user);
+        }
+        return users;
+    }*/
 
     @GetMapping("/retrievePended")
     public ArrayList<IUser> retrievePended() {
