@@ -92,7 +92,8 @@ public class User extends IUser {
             nwRequest.setNoOfPass(noOfPass);
             ((Ride) ride).addRequest(nwRequest);
             userRequest = nwRequest;
-            ride.checkSourceArea(((Ride) ride).getSource());
+            //ride.checkSourceArea(((Ride) ride).getSource());
+            if(((Ride) ride).getSource()!=null)((Ride) ride).getSource().notifyDriver((Ride) ride);
         }
         return (Ride) ride;
     }

@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 public class Area implements IArea {
 
-    private ArrayList<IDriver> drivers = new ArrayList<>();
     private String name;
     private boolean hasAdminDiscount;
+    private ArrayList<IDriver> drivers = new ArrayList<>();
     public Area(){ super();}
 
     public Area( String name) {
@@ -40,6 +40,10 @@ public class Area implements IArea {
         }
 
 
+    }
+
+    public ArrayList<IDriver> getDrivers() {
+        return drivers;
     }
 
     @Override

@@ -9,6 +9,7 @@ import com.transportation.core.Ride;
 import java.util.ArrayList;
 
 public interface ISaving {
+
     boolean saveUser(IUser user);
 
     boolean savePended(IUser pended);

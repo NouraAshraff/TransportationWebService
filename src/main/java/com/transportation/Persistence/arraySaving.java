@@ -15,7 +15,11 @@ public class arraySaving implements ISaving {
     static ArrayList<Ride> rides = new ArrayList<>();
     static ArrayList<IUser> pending = new ArrayList<>();
     static ArrayList<IUser> admins = new ArrayList<>();
-
+    static private arraySaving saving=new arraySaving();
+    private arraySaving(){ }
+    public static arraySaving getInstance(){
+        return saving;
+    }
     @Override
     public boolean saveUser(IUser user) {
         if (!iusers.contains(user))
@@ -112,9 +116,9 @@ public class arraySaving implements ISaving {
                 return area;
             }
         }
-        IArea nwArea = new Area(name);
+       IArea nwArea = new Area(name);
         saveArea((Area) nwArea);
-        return nwArea;
+        return null;
     }
 
     @Override

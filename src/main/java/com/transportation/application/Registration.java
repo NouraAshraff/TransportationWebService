@@ -6,7 +6,7 @@ import com.transportation.Persistence.ISaving;
 
 public abstract class Registration {
 
-    public ISaving isaving  = new arraySaving();
+    public ISaving isaving  = arraySaving.getInstance();
 
     public abstract boolean Register(IUser iuser);
     public Registration() {}

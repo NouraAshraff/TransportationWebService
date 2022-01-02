@@ -34,4 +34,6 @@ public class AreaController {
     public boolean removeDriver(@RequestBody Driver driver) {
         return  area.removeDriver(driver);
     }
+
+
 }

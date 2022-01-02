@@ -15,70 +15,70 @@ import java.util.ArrayList;
 @RequestMapping("/ArraySaving")
 @RestController
 public class ArraySavingController {
-    ISaving arraySaving = new arraySaving();
+    ISaving saving = arraySaving.getInstance();
 
     @PostMapping("/saveUser")
     public boolean saveUser( @RequestBody User user) {
-        return arraySaving.saveUser(user);
+        return saving.saveUser(user);
     }
 
     @PostMapping("/addAdmin")
     public boolean addAdmin(@RequestBody admin admin) {
-        return arraySaving.addAdmin(admin);
+        return saving.addAdmin(admin);
     }
 
     @PostMapping("/savePended")
     public boolean savePended( @RequestBody IUser pended) {
-        return arraySaving.savePended(pended);
+        return saving.savePended(pended);
     }
 
     @PostMapping("/saveArea")
     public boolean saveArea( @RequestBody Area area) {
-        return arraySaving.saveArea(area);
+        return saving.saveArea(area);
     }
 
     @PostMapping("/saveRide")
     public boolean saveRide(@RequestBody Ride ride) {
-        return arraySaving.saveRide(ride);
+        return saving.saveRide(ride);
     }
 
    @GetMapping("/retrieveUser")
     public ArrayList<IUser> retrieveUsers() {
-        return arraySaving.retrieveUsers();
+        return saving.retrieveUsers();
     }
 
     @GetMapping("/retrievePended")
     public ArrayList<IUser> retrievePended() {
-        return arraySaving.retrievePended();
+        return saving.retrievePended();
     }
 
     @GetMapping("/retrieveArea")
     public ArrayList<Area> retrieveArea() {
-        return arraySaving.retrieveArea();
+        return saving.retrieveArea();
     }
 
     @GetMapping("/retrieveRide")
     public ArrayList<Ride> retrieveRide() {
-        return arraySaving.retrieveRide();
+        return saving.retrieveRide();
     }
 
     @GetMapping("/searchUser")
     public IUser searchIUser(@RequestBody String userName, @RequestBody String password) {
-        return arraySaving.searchIUser(userName,password);
+        return saving.searchIUser(userName,password);
     }
 
     @GetMapping("/searchRide/{destination}")
     public IRide searchRide( @RequestBody Area source, @PathVariable Area destination) {
-        return  arraySaving.searchRide(source,destination);
+        return  saving.searchRide(source,destination);
     }
 
     @GetMapping("/searchArea")
     public IArea searchArea( @RequestBody String name) {
-      return arraySaving.searchArea(name);
+      return saving.searchArea(name);
     }
 
     @GetMapping("/searchAdmin")
     public IUser searchAdmin(@RequestBody String userName, @RequestBody String Password) {
-       return  arraySaving.searchAdmin(userName,Password);
+       return  saving.searchAdmin(userName,Password);
     }
 }

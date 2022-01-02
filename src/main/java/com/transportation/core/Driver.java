@@ -158,7 +158,6 @@ public class Driver extends IUser implements IDriver {
     @Override
     public boolean AddNewFavArea(Area area) {
         area.addDriver(this);
-
         return favoriteAreas.add(area);
     }
 
